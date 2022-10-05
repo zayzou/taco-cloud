@@ -1,0 +1,26 @@
+main {
+    width: 60%;
+    margin: auto;
+
+}
+
+header {
+    text-align: center;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    width: 100px;
+    display: inline-block;
+}
+
+input {
+    height: 25px;
+}
+
+.text-danger {
+    color: orangered;
+}
