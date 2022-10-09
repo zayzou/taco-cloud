@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Design</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Order Detail </h1>
+    <img th:src="@{/img/merinal-logo.svg}" width="200" height="100">
+  </header>
+  <a th:href="@{design}">🌵Back to design.</a>
+  <h2>
+    Order number : <span th:text="${order.id}"></span>
+  </h2>
+  <ul th:each="tacos : ${order.getTacos()}">
+    <li>
+      <h3>
+        <span th:text="${tacos.name.toUpperCase()}+' | '"></span>
+        <span th:text="${tacos.createdAt}"></span>
+      </h3>
+      <ul th:each="ingredient : ${tacos.ingredients}">
+        <li th:text="${ingredient.ingredient}"></li>
+      </ul>
+    </li>
+  </ul>
+</main>
+</body>
+</html>
