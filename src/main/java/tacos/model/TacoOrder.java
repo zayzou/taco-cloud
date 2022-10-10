@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -20,6 +21,8 @@ public class TacoOrder implements Serializable {
 
     @Id
     private Long id;
+
+    private Date placedAt = new Date();
     @NotBlank
     private String deliveryName;
     @NotBlank
