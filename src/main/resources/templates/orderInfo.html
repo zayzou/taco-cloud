@@ -16,14 +16,14 @@
   <h2>
     Order number : <span th:text="${order.id}"></span>
   </h2>
-  <ul th:each="tacos : ${order.getTacos()}">
+  <ul th:each="taco : ${order.tacos}">
     <li>
       <h3>
-        <span th:text="${tacos.name.toUpperCase()}+' | '"></span>
-        <span th:text="${tacos.createdAt}"></span>
+        <span th:text="${taco.name.toUpperCase()}+' | '"></span>
+        <span th:text="${taco.createdAt}"></span>
       </h3>
-      <ul th:each="ingredient : ${tacos.ingredients}">
-        <li th:text="${ingredient.ingredient}"></li>
+      <ul th:each="ingredient : ${taco.ingredients}">
+        <li th:text="${ingredient.name}"></li>
       </ul>
     </li>
   </ul>

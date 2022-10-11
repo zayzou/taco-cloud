@@ -2,24 +2,20 @@ package tacos.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.domain.Persistable;
-import org.springframework.data.relational.core.mapping.Table;
+import lombok.NoArgsConstructor;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
 @AllArgsConstructor
-@Table
-public class Ingredient implements Persistable<String> {
+@NoArgsConstructor
+@Entity
+public class Ingredient  {
 
     @Id
     private String id;
     private String name;
     private Type type;
-
-    @Override
-    public boolean isNew() {
-        return true;
-    }
 
     public enum Type {
       WRAP,PROTEIN,VEGGIES,CHEESE,SAUCE

@@ -41,10 +41,21 @@ public class OrderController {
     }
 
     @GetMapping()
+//    @ResponseBody
     public String orderDetail(@RequestParam Long id, Model model) {
         TacoOrder order = repo.findById(id).orElseThrow();
         model.addAttribute("order",order);
         return "orderInfo";
+//        return order.toString();
+    }
+
+    @GetMapping("custom-jpa")
+    @ResponseBody
+    public String customJPA(){
+        log.info(repo.findAllByDeliveryCity("DEM").toString());
+        log.info((repo.findAllByCcCVVOrderByPlacedAt("123")).toString());
+        log.info(repo.findByDeliveryNameAndDeliveryCityIgnoreCase("zayzou","DEM").toString());
+        return "custom-jpa";
     }
 
 }

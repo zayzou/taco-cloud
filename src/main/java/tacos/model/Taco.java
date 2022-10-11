@@ -1,19 +1,19 @@
 package tacos.model;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
 @Data
-@Table
+@Entity
 public class Taco {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date createdAt = new Date();
@@ -24,10 +24,11 @@ public class Taco {
 
     @NotNull
     @Size(min = 1,message = "ilaq attekhthared au moins yiwen utacos")
-    private List<IngredientRef> ingredients;
+    @ManyToMany
+    private List<Ingredient> ingredients;
 
     public void addIngredient(Ingredient ingredient){
-        this.ingredients.add(new IngredientRef(ingredient.getId()));
+        this.ingredients.add(ingredient);
     };
 
 }

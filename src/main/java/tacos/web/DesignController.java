@@ -9,11 +9,9 @@ import tacos.data.IngredientRepository;
 import tacos.model.Ingredient;
 import tacos.model.Taco;
 import tacos.model.TacoOrder;
-
 import javax.validation.Valid;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
 import static tacos.model.Ingredient.Type;
 
 @Controller
