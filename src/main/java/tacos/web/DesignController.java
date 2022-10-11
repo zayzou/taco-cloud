@@ -1,6 +1,7 @@
 package tacos.web;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -9,9 +10,11 @@ import tacos.data.IngredientRepository;
 import tacos.model.Ingredient;
 import tacos.model.Taco;
 import tacos.model.TacoOrder;
+
 import javax.validation.Valid;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+
 import static tacos.model.Ingredient.Type;
 
 @Controller
