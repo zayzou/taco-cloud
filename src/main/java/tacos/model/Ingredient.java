@@ -3,6 +3,7 @@ package tacos.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Ingredient  {
+public class Ingredient {
 
     @Id
     private String id;
@@ -18,6 +19,8 @@ public class Ingredient  {
     private Type type;
 
     public enum Type {
-      WRAP,PROTEIN,VEGGIES,CHEESE,SAUCE
-    };
+        WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+    }
+
+    ;
 }

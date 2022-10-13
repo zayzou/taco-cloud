@@ -19,16 +19,18 @@ public class Taco {
     private Date createdAt = new Date();
 
     @NotNull
-    @Size(min = 5,message = "Issem n utacos ilaq ad yesɛu 05 naɣ  kthar")
+    @Size(min = 5, message = "Issem n utacos ilaq ad yesɛu 05 naɣ  kthar")
     private String name;
 
     @NotNull
-    @Size(min = 1,message = "ilaq attekhthared au moins yiwen utacos")
+    @Size(min = 1, message = "ilaq attekhthared au moins yiwen utacos")
     @ManyToMany
     private List<Ingredient> ingredients;
 
-    public void addIngredient(Ingredient ingredient){
+    public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
-    };
+    }
+
+    ;
 
 }

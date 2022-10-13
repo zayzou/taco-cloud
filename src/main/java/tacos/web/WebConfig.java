@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         System.out.println("Calling from web config");
         registry.addViewController("/").setViewName("home");
+        registry.addViewController("login").setViewName("login");
         registry.addStatusController("/status", HttpStatus.FORBIDDEN);
-        registry.addRedirectViewController("/web","https://www.youtube.com");
+        registry.addRedirectViewController("/web", "https://www.youtube.com");
     }
 }

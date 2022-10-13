@@ -4,7 +4,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.data.IngredientRepository;
+import tacos.data.UserRepository;
 import tacos.model.Ingredient;
 
 import static tacos.model.Ingredient.Type;
@@ -17,9 +19,15 @@ public class TacoCloudApplication {
     }
 
     @Bean
-    public CommandLineRunner loadData(IngredientRepository repo) {
+    public CommandLineRunner loadData(IngredientRepository repo, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         System.out.println("loading ingredients : ");
         return args -> {
+//            User user = new User();
+//            user.setPassword(passwordEncoder.encode("password"));
+//            user.setUsername("user");
+//            user.setRole("ROLE_ADMIN");
+//            userRepository.save(user);
+
             repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
             repo.save(new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
             repo.save(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
