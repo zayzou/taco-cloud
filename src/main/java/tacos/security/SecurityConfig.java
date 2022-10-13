@@ -20,7 +20,11 @@ public class SecurityConfig {
         return http
                 .authorizeRequests()
                 .antMatchers("/design", "/orders").hasRole("USER")
-                .antMatchers("/", "/**").permitAll()
+                .antMatchers("/", "**").permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+
                 .and()
                 .build();
     }
@@ -43,9 +47,6 @@ public class SecurityConfig {
     }
 
 
-    /**
-     * In Memory User management for Spring Security
-     */
     /*@Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         List<UserDetails> userList = new ArrayList<>();
