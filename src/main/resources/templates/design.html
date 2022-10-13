@@ -13,6 +13,9 @@
     <header>
         <h1>Design</h1>
         <img height="100" th:src="@{/img/merinal-logo.svg}" width="200">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="logout">
+        </form>
     </header>
     <form method="post" th:object="${taco}">
         <span class="text-danger"
