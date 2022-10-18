@@ -18,6 +18,7 @@
         </form>
     </header>
     <form method="post" th:object="${taco}">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
         <span class="text-danger"
               th:errors="*{ingredients}"
               th:if="${#fields.hasErrors('ingredients')}">

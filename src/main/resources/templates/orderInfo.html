@@ -13,8 +13,9 @@
         <img height="100" th:src="@{/img/merinal-logo.svg}" width="200">
     </header>
     <a th:href="@{design}">🌵Back to design.</a>
+    <h2> Order number : <span th:text="${order.id}"></span></h2>
     <h2>
-        Order number : <span th:text="${order.id}"></span>
+        Client : <span th:text="${order.user.username}"></span>
     </h2>
     <ul th:each="taco : ${order.tacos}">
         <li>
