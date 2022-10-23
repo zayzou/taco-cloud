@@ -9,12 +9,12 @@ spring:
             scope:
               - user:email
               - read:user
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: root
+    password: password
+
 
 logging:
-  file:
-    path: /Users/z.soffi/Documents/Personel/Formations/Spring/SpringInAction/v2/taco-cloud
-    name: TacoCloud.log
-
-taco:
-  orders:
-    pageSize:10
+  level:
+    web: warn

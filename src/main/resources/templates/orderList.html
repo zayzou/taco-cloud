@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OrderList</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h4>Number of orders found : <span th:text="${orders.size}"></span></h4>
+<table >
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Delivery Name</th>
+        <th scope="col">City</th>
+        <th scope="col">User</th>
+        <th scope="col">Placed At</th>
+    </tr>
+    </thead>
+    <tr th:each="order: ${orders}">
+        <th scope="row" th:text="${order.id}"/>
+        <td th:text="${order.getDeliveryName()}"/>
+        <td th:text="${order.getDeliveryCity()}"/>
+        <td th:text="${order.user.username}"/>
+        <td th:text="${order.getPlacedAt()}"/>
+    </tr>
+</table>
+</body>
+</html>

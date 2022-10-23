@@ -35,6 +35,15 @@ public class SecurityConfig extends GlobalMethodSecurityConfiguration {
                 .oauth2Login()
                 .loginPage("/login")
                 .and()
+                .csrf()
+                .ignoringAntMatchers("/h2-console/**")
+
+                // Allow pages to be loaded in frames from the same origin; needed for H2-Console
+                .and()
+                .headers()
+                .frameOptions()
+                .sameOrigin()
+                .and()
                 .logout()
                 .and()
                 .build();

@@ -19,7 +19,7 @@ public class TacoOrder implements Serializable {
     private static long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private Date placedAt = new Date();
