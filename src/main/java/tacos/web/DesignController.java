@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
 import tacos.model.Ingredient;
 import tacos.model.Taco;
 import tacos.model.TacoOrder;
@@ -23,10 +24,13 @@ import static tacos.model.Ingredient.Type;
 public class DesignController {
 
     private final IngredientRepository repo;
+    private final TacoRepository tacoRepo;
 
-    public DesignController(IngredientRepository reps) {
-        this.repo = reps;
+    public DesignController(IngredientRepository repo, TacoRepository tacoRepo) {
+        this.repo = repo;
+        this.tacoRepo = tacoRepo;
     }
+
 
     @ModelAttribute("tacoOrder")
     public TacoOrder tacoOrder() {
@@ -58,6 +62,7 @@ public class DesignController {
         if (errors.hasErrors()) {
             return "design";
         }
+        Taco saved = tacoRepo.save(taco);
         tacoOrder.addTaco(taco);
         log.info(taco.toString());
         return "redirect:/orders/current";

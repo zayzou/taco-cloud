@@ -6,9 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
 import tacos.data.UserRepository;
 import tacos.model.Ingredient;
+import tacos.model.Taco;
 import tacos.model.User;
+
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 import static tacos.model.Ingredient.Type;
 
@@ -25,7 +31,7 @@ public class TacoCloudApplication {
         return args -> {
             User user = new User();
             user.setPassword(passwordEncoder.encode("pass"));
-            user.setUsername("za");
+            user.setUsername("user");
             user.setRole("ROLE_ADMIN");
             userRepository.save(user);
             repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
