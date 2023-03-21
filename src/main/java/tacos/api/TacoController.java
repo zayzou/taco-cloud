@@ -24,8 +24,12 @@ public class TacoController {
     @GetMapping(params = "recent")
     public Iterable<Taco> recentTacos() {
         Iterable<Taco> all = tacoRepository.findAll();
-        log.info("tacos {}",all);
+        log.info("tacos {}", all);
         return all;
+    }
 
+    @GetMapping(params = "first")
+    public Taco first() {
+        return tacoRepository.findById(105L).get();
     }
 }
