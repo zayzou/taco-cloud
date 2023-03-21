@@ -22,11 +22,10 @@ public class JmsTacoMessagingService implements TacoMessagingService{
 
     @Override
     public void sendTaco(Taco taco) {
-        //todo implement
         jms.send(new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-                return session.createObjectMessage((Serializable) taco);
+                return session.createTextMessage("this is life");
             }
         });
     }

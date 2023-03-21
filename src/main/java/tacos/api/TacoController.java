@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tacos.data.TacoRepository;
+import tacos.messaging.TacoMessagingService;
 import tacos.model.Taco;
 
 
@@ -16,9 +17,11 @@ import tacos.model.Taco;
 public class TacoController {
 
     TacoRepository tacoRepository;
+    TacoMessagingService messagingService;
 
-    public TacoController(TacoRepository tacoRepository) {
+    public TacoController(TacoRepository tacoRepository, TacoMessagingService messagingService) {
         this.tacoRepository = tacoRepository;
+        this.messagingService = messagingService;
     }
 
     @GetMapping(params = "recent")
@@ -30,6 +33,9 @@ public class TacoController {
 
     @GetMapping(params = "first")
     public Taco first() {
-        return tacoRepository.findById(105L).get();
+        Taco taco = tacoRepository.findById(105L).get();
+        this.messagingService.sendTaco(taco);
+        log.info(taco.toString());
+        return taco;
     }
 }
