@@ -16,6 +16,7 @@ public class JmsTacoMessagingService implements TacoMessagingService {
 
     @Override
     public void sendTaco(Taco taco) {
-        jms.send(session -> session.createObjectMessage(taco));
+        jms.convertAndSend(taco);
+//        jms.send(session -> session.createObjectMessage(taco));
     }
 }
