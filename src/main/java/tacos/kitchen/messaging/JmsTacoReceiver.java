@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import tacos.model.Taco;
 
 import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
 
 @Service
 public class JmsTacoReceiver implements TacoReceiver {
@@ -26,11 +24,7 @@ public class JmsTacoReceiver implements TacoReceiver {
 
     @Override
     public Taco receiveTaco() {
-        Message message = jms.receive(destination);
-        try {
-            return (Taco) messageConverter.fromMessage(message);
-        } catch (JMSException e) {
-            throw new RuntimeException(e);
-        }
+        return (Taco) jms.receiveAndConvert(destination);
+
     }
 }
