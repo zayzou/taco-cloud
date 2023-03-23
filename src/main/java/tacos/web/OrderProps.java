@@ -14,7 +14,7 @@ import javax.validation.constraints.Min;
 @Validated
 public class OrderProps {
 
-    @Min(value = 5,message = "No less than 05")
+    @Min(value = 5, message = "No less than 05")
     @Max(value = 30, message = "No more than 30")
-    private int pageSize= 20;
+    private int pageSize = 20;
 }

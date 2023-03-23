@@ -2,7 +2,6 @@ package tacos.web;
 
 import com.github.javafaker.Faker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,16 +24,15 @@ import java.security.Principal;
 @SessionAttributes("tacoOrder")
 public class OrderController {
 
-    private OrderRepository orderRepository;
-    private UserRepository userRepository;
-    private OrderProps pageSize;
+    private final OrderRepository orderRepository;
+    private final UserRepository userRepository;
+    private final OrderProps pageSize;
 
-    public OrderController(OrderRepository orderRepository, UserRepository userRepository,OrderProps pageSize) {
+    public OrderController(OrderRepository orderRepository, UserRepository userRepository, OrderProps pageSize) {
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
-        this.pageSize=pageSize;
+        this.pageSize = pageSize;
     }
-
 
 
     @GetMapping("current")

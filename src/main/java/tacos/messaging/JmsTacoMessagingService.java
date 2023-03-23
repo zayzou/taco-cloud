@@ -11,8 +11,8 @@ import javax.jms.Message;
 @Service
 public class JmsTacoMessagingService implements TacoMessagingService {
 
-    private JmsTemplate jms;
-    private Destination tacoQueue;
+    private final JmsTemplate jms;
+    private final Destination tacoQueue;
 
     public JmsTacoMessagingService(JmsTemplate jms, Destination tacoQueue) {
         this.jms = jms;

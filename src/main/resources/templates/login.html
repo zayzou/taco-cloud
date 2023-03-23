@@ -14,21 +14,21 @@
     <header>
         <h1>Login</h1>
     </header>
-    <form th:action="@{/login}" method="post">
+    <form method="post" th:action="@{/login}">
         <div>
             <label for="username">username</label>
-            <input type="text" name="username" id="username">
+            <input id="username" name="username" type="text">
         </div>
         <div>
             <label for="password">password</label>
-            <input name="password" id="password" type="password">
+            <input id="password" name="password" type="password">
         </div>
         <div>
             <input type="submit" value="Se Connecter">
         </div>
     </form>
     <footer>
-<!--        <a th:href="@{/oauth2/authorization/github}">Login with Github</a>-->
+        <!--        <a th:href="@{/oauth2/authorization/github}">Login with Github</a>-->
         <a th:href="@{/oauth2/authorization/github}">Login with GitHub</a>
         <h3>New to here</h3><a th:href="@{/register}">Create an account</a>
     </footer>

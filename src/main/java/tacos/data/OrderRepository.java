@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
 
-    public List<TacoOrder> findAllByDeliveryCity(String city);
+    List<TacoOrder> findAllByDeliveryCity(String city);
 
-    public List<TacoOrder> findAllByCcCVVOrderByPlacedAt(String ccCVV);
+    List<TacoOrder> findAllByCcCVVOrderByPlacedAt(String ccCVV);
 
     List<TacoOrder> findByDeliveryNameAndDeliveryCityIgnoreCase(
             String deliveryTo, String deliveryCity);

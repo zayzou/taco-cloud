@@ -15,7 +15,7 @@ public class OrderAdminService {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    public void deleteAllOrders(){
+    public void deleteAllOrders() {
         repository.deleteAll();
     }
 }

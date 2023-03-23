@@ -10,10 +10,10 @@ import javax.jms.Destination;
 @Service
 public class JmsTacoReceiver implements TacoReceiver {
 
-    private JmsTemplate jms;
-    private MessageConverter messageConverter;
+    private final JmsTemplate jms;
+    private final MessageConverter messageConverter;
 
-    private Destination destination;
+    private final Destination destination;
 
     public JmsTacoReceiver(JmsTemplate jms, MessageConverter messageConverter, Destination destination) {
         this.jms = jms;
@@ -25,6 +25,5 @@ public class JmsTacoReceiver implements TacoReceiver {
     @Override
     public Taco receiveTaco() {
         return (Taco) jms.receiveAndConvert(destination);
-
     }
 }

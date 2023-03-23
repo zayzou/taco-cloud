@@ -3,7 +3,7 @@ package tacos.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Taco implements Serializable {
 
     private static final long serialVersionUID = 1L;

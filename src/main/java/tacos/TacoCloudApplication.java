@@ -6,15 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.data.IngredientRepository;
-import tacos.data.TacoRepository;
 import tacos.data.UserRepository;
 import tacos.model.Ingredient;
-import tacos.model.Taco;
 import tacos.model.User;
-
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
 import static tacos.model.Ingredient.Type;
 
