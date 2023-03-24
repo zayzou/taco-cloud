@@ -1,4 +1,4 @@
-package tacos.messaging;
+package tacos.messaging.jms;
 
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.springframework.context.annotation.Bean;

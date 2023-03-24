@@ -1,4 +1,4 @@
-package tacos.messaging;
+package tacos.messaging.jms;
 
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
