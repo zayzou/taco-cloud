@@ -3,7 +3,10 @@ package tacos;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.event.EventListener;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.data.IngredientRepository;
 import tacos.data.UserRepository;
@@ -19,10 +22,23 @@ public class TacoCloudApplication {
         SpringApplication.run(TacoCloudApplication.class, args);
     }
 
+    @EventListener(ApplicationReadyEvent.class)
+    public void applicationReady(ApplicationReadyEvent event) {
+        System.out.println(">>>Application ready at: " + event.getTimestamp());
+    }
+
+    @Order(2)
+    @Bean
+    public CommandLineRunner init() {
+        return args -> System.out.println("Command line runner instance 2 is running");
+
+    }
+
+    @Order(1)
     @Bean
     public CommandLineRunner loadData(IngredientRepository repo, UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        System.out.println("loading ingredients : ");
         return args -> {
+            System.out.println("command line runner instance one is done");
             User user = new User();
             user.setPassword(passwordEncoder.encode("pass"));
             user.setUsername("user");
@@ -38,7 +54,9 @@ public class TacoCloudApplication {
             repo.save(new Ingredient("JACK", "Monterrey Jack", Type.CHEESE));
             repo.save(new Ingredient("SLSA", "Salsa", Type.SAUCE));
             repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
+
         };
+
     }
 
 
