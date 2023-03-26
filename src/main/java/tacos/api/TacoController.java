@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tacos.data.TacoRepository;
-import tacos.kitchen.messaging.TacoReceiver;
+import tacos.kitchen.messaging.rabbitmq.RabbitTacoReceiver;
 import tacos.messaging.rabbitmq.RabbitTacoMessagingService;
 import tacos.model.Taco;
 
@@ -20,9 +20,9 @@ public class TacoController {
     TacoRepository tacoRepository;
     RabbitTacoMessagingService messagingService;
 
-    TacoReceiver tacoReceiver;
+    RabbitTacoReceiver tacoReceiver;
 
-    public TacoController(TacoRepository tacoRepository, RabbitTacoMessagingService messagingService, TacoReceiver tacoReceiver) {
+    public TacoController(TacoRepository tacoRepository, RabbitTacoMessagingService messagingService, RabbitTacoReceiver tacoReceiver) {
         this.tacoRepository = tacoRepository;
         this.messagingService = messagingService;
         this.tacoReceiver = tacoReceiver;

@@ -1,8 +1,9 @@
-package tacos.kitchen.messaging;
+package tacos.kitchen.messaging.jms;
 
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.stereotype.Service;
+import tacos.kitchen.messaging.TacoReceiver;
 import tacos.model.Taco;
 
 import javax.jms.Destination;

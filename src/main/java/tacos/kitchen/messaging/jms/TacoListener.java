@@ -1,7 +1,8 @@
-package tacos.kitchen.messaging;
+package tacos.kitchen.messaging.jms;
 
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
+import tacos.kitchen.messaging.KitchenUI;
 import tacos.model.Taco;
 
 
