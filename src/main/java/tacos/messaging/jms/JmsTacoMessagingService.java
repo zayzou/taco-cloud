@@ -2,6 +2,7 @@ package tacos.messaging.jms;
 
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
+import tacos.messaging.TacoMessagingService;
 import tacos.model.Taco;
 
 import javax.jms.Destination;

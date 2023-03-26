@@ -1,4 +1,4 @@
-package tacos.messaging.jms;
+package tacos.messaging;
 
 
 import tacos.model.Taco;

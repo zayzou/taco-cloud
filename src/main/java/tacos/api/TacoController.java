@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tacos.data.TacoRepository;
 import tacos.kitchen.messaging.TacoReceiver;
-import tacos.messaging.jms.TacoMessagingService;
+import tacos.messaging.TacoMessagingService;
 import tacos.model.Taco;
 
 
