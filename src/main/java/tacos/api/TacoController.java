@@ -31,7 +31,6 @@ public class TacoController {
     @GetMapping(params = "recent")
     public Iterable<Taco> recentTacos() {
         Iterable<Taco> all = tacoRepository.findAll();
-        log.info("tacos {}", all);
         return all;
     }
 
@@ -39,15 +38,12 @@ public class TacoController {
     public Taco first() {
         Taco taco = tacoRepository.findById(105L).get();
         this.messagingService.sendTaco(taco);
-        log.info(taco.toString());
         return taco;
     }
 
     @GetMapping(params = "receive")
     public Taco receive() {
-
         Taco taco = tacoReceiver.receiveTaco();
-        log.info(taco.toString());
         return taco;
     }
 

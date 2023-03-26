@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import tacos.model.Taco;
 
 
-@Component
+//@Component
 public class TacoListener {
 
     private final KitchenUI ui;

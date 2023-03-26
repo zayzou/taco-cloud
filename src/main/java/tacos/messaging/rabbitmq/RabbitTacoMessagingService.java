@@ -1,5 +1,6 @@
 package tacos.messaging.rabbitmq;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -9,6 +10,7 @@ import tacos.messaging.TacoMessagingService;
 import tacos.model.Taco;
 
 @Service
+@Slf4j
 public class RabbitTacoMessagingService implements TacoMessagingService {
 
     RabbitTemplate rabbit;
@@ -22,6 +24,8 @@ public class RabbitTacoMessagingService implements TacoMessagingService {
         MessageConverter converter = rabbit.getMessageConverter();
         MessageProperties properties = new MessageProperties();
         Message message = converter.toMessage(taco, properties);
-        this.rabbit.send("tacocloud.tacos", message);
+        log.info("Sending message : " + message);
+        this.rabbit.send("test", message);
+//        this.rabbit.convertAndSend("test","this is a message from my app");
     }
 }

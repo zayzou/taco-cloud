@@ -9,7 +9,7 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 
-@Service
+//@Service
 public class JmsTacoMessagingService implements TacoMessagingService {
 
     private final JmsTemplate jms;
