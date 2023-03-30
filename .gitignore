@@ -35,4 +35,4 @@ build/
 
 ###logs ###
 taco-cloud.log
-./logs/
+logs
