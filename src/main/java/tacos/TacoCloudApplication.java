@@ -7,11 +7,13 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.data.IngredientRepository;
 import tacos.data.UserRepository;
 import tacos.model.Ingredient;
 import tacos.model.User;
+import tacos.simpleflow.FileWriterGateway;
 
 import static tacos.model.Ingredient.Type;
 
@@ -57,6 +59,19 @@ public class TacoCloudApplication {
 
         };
 
+    }
+
+    @Bean
+    public CommandLineRunner writeData(FileWriterGateway gateway, Environment env) {
+        return args -> {
+            String[] activeProfiles = env.getActiveProfiles();
+            if (activeProfiles.length > 0) {
+                String profile = activeProfiles[0];
+                gateway.writeToFile("simple.txt", "Hello, Spring Integration! (" + profile + ")");
+            } else {
+                System.out.println("No active profile set. Should set active profile to one of xmlconfig, javaconfig, or javadsl.");
+            }
+        };
     }
 
 
