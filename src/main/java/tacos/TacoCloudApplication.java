@@ -14,7 +14,6 @@ import tacos.data.UserRepository;
 import tacos.model.Ingredient;
 import tacos.model.User;
 import tacos.simpleflow.FileWriterGateway;
-
 import static tacos.model.Ingredient.Type;
 
 @SpringBootApplication
@@ -29,12 +28,6 @@ public class TacoCloudApplication {
         System.out.println(">>>Application ready at: " + event.getTimestamp());
     }
 
-    @Order(2)
-    @Bean
-    public CommandLineRunner init() {
-        return args -> System.out.println("Command line runner instance 2 is running");
-
-    }
 
     @Order(1)
     @Bean
