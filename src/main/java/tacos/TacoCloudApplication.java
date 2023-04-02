@@ -60,7 +60,7 @@ public class TacoCloudApplication {
             String[] activeProfiles = env.getActiveProfiles();
             if (activeProfiles.length > 0) {
                 String profile = activeProfiles[0];
-                gateway.writeToFile("simple.txt", "Hello, Spring Integration! (" + profile + ")");
+                gateway.writeToFile("simple.txt", "With filter : Adding JAVA Hello, Spring Integration! (" + profile + ")");
             } else {
                 System.out.println("No active profile set. Should set active profile to one of xmlconfig, javaconfig, or javadsl.");
             }

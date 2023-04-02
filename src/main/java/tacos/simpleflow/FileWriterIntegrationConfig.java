@@ -12,6 +12,7 @@ import org.springframework.integration.file.FileWritingMessageHandler;
 import org.springframework.integration.file.dsl.Files;
 import org.springframework.integration.file.support.FileExistsMode;
 import org.springframework.integration.transformer.GenericTransformer;
+
 import java.io.File;
 
 @Configuration
@@ -46,12 +47,14 @@ public class FileWriterIntegrationConfig {
         return handler;
     }
 
+
     @Profile("javadsl")
     @Bean
     public IntegrationFlow fileWriterFlow() {
         return IntegrationFlows
                 .from(MessageChannels.direct("textInChannel"))
                 .<String, String>transform(String::toUpperCase)
+                .<String>filter((s) -> s.contains("JAVA"))
                 .handle(Files.outboundAdapter(new File("/Users/z.soffi/Desktop/files"))
                         .fileExistsMode(FileExistsMode.APPEND)
                         .appendNewLine(true)
