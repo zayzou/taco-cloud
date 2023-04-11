@@ -7,10 +7,10 @@ This repository contains the code examples from the book [Spring in Action, 6th 
 To build and run the examples, you'll need to have Java and Maven installed on your system.
 
 1. Clone the repository to your local machine:
-`git clone https://github.com/your-username/spring-in-action-6th-edition.git`
+`git clone https://github.com/Soffi-Zahir/taco-cloud.git`
 
 2. Navigate to the project directory:
-`cd spring-in-action-6th-edition`
+`cd taco-cloud`
 
 3. Build the project using Maven:
 `mvn package`
