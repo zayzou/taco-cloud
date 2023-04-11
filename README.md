@@ -1,27 +1,30 @@
-TacoOrder(
-id=1,
-placedAt=2022-10-10 15:57:24.619',
-deliveryName=Grace Adams,
-deliveryStreet=Reprehenderit adipi,
-deliveryCity=Similique ipsum sun,
-deliveryState=Sint veniam minima ,
-deliveryZip=74593,
-ccNumber=4556820623192490,
-ccExpiration=04/26,
-ccCVV=820,
-tacos=[
-Taco(id=2,
-createdAt=2022-10-10 15:57:27.595,
-name=Evan Beasley,
-ingredients=[
-Ingredient(id=FLTO, name=Flour Tortilla,type=WRAP),
-Ingredient(id=COTO, name=Corn Tortilla, type=WRAP),
-Ingredient(id=CARN, name=Carnitas, type=PROTEIN),
-Ingredient(id=CHED, name=Cheddar, type=CHEESE),
-Ingredient(id=JACK, name=Monterrey Jack, type=CHEESE),
-Ingredient(id=SLSA, name=Salsa, type=SAUCE),
-Ingredient(id=SRCR, name=Sour Cream, type=SAUCE),
-Ingredient(id=LETC, name=Lettuce, type=VEGGIES)]
-)
-]
-)
+# Spring in Action 6th Edition Code Examples
+
+This repository contains the code examples from the book [Spring in Action, 6th Edition](https://www.manning.com/books/spring-in-action-sixth-edition).
+
+## Getting Started
+
+To build and run the examples, you'll need to have Java and Maven installed on your system.
+
+1. Clone the repository to your local machine:
+`git clone https://github.com/your-username/spring-in-action-6th-edition.git`
+
+2. Navigate to the project directory:
+`cd spring-in-action-6th-edition`
+
+3. Build the project using Maven:
+`mvn package`
+
+## Project Structure
+
+The project is organized by chapter and section, with each section containing one or more examples. Each example is contained in its own package and includes a `README.md` file with more information about the example.
+
+## Contributing
+
+If you find any issues with the code examples or would like to contribute an example of your own, please feel free to submit a pull request.
+
+## License
+
+This code is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
